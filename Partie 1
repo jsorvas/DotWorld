@@ -1,1 +1,37 @@
+# Cartographie fonctionnelle
+# Fonctionnzlités : 
+création de compte
+réinitailisation de mot de passe
+identifiant oublié 
+connexion
+Gestion du profil
+Créer un CV
+Modifier un CV
+Supprimer un CV
+Télécharger un CV 
 
+
+# Matrice de risque
+création de compte (P0 - sévérité critique) 
+réinitailisation de mot de passe (P0 - sévérité critique)
+identifiant oublié (P0 - sévérité critique)
+connexion (P0 - sévérité critique)
+Gestion du profil (P1 - sévérité majeure)
+Créer un CV (P0 - sévérité critique)
+Modifier un CV (P0 - sévérité critique)
+Supprimer un CV (P2 - sévérité mineure)
+Télécharger un CV (P1 - sévérité critique)
+
+
+# Plan de test priorisé
+
+Création de compte - Connexion - Créer CV - Télécharger 
+Connexion - Modification CV
+
+
+
+# Stratégie d'environnement 
+Mobile : Iphone, Android
+Desktop : Windows, Mac, Linux, OS Chrome
+Résolution 16:9, 4:3 
+Formats les plus utilisés
