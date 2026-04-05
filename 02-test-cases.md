@@ -88,7 +88,7 @@
 
 ---
 
-## TC-005 — Inscription avec un email déjà utilisé
+## TC-004 — Inscription avec un email déjà utilisé
 
 | Champ | Description |
 |---|---|
@@ -122,7 +122,7 @@
 
 ---
 
-## TC-006 — Résiliation de l'abonnement pendant la période d'essai
+## TC-005 — Résiliation de l'abonnement pendant la période d'essai
 
 | Champ | Description |
 |---|---|
