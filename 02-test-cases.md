@@ -1,3 +1,5 @@
+> Environnements prioritaires issus de 01-test-strategy.md
+
 # 3 Cas de test (happy path) — F1 Gestion compte & abonnement
 
 > Parcours nominal | Score de risque : 9 | Priorité : P1
@@ -281,7 +283,6 @@
 # 2 Cas de test — Compatibilité responsive & multi-navigateur
 
 > Périmètre : F1 Gestion compte & abonnement
-> Environnements prioritaires issus de ENVIRONMENT_STRATEGY.md
 
 ---
 
