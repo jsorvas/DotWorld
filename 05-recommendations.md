@@ -2,10 +2,11 @@
 
 > 3 conseils UX 
 
+| Conseil | Description |
 |---|---|
 | 1 | Transparence tarifaire sur la page d'accueil |
-| 2|  Pas de FAQ |
-| 3| Preuve sociale (vrai témoignage avec nom) | 
+| 2 |  Pas de FAQ |
+| 3 | Preuve sociale (vrai témoignage avec nom) | 
 
 > Types de tests à mettre en place
 
