@@ -161,3 +161,144 @@
 > Tout friction anormale observée lors de ce test doit être remontée
 > immédiatement comme défaut bloquant, indépendamment du go/no-go
 > technique.
+
+# 3 Cas de test — F1 Gestion compte & abonnement
+
+> Cas d'erreur (validation, champs vides, formats invalides)
+> Score de risque : 9 | Priorité : P1
+
+---
+
+## TC-007 — Inscription avec un email au format invalide
+
+| Champ | Description |
+|---|---|
+| **ID** | TC-007 |
+| **Titre** | Tentative d'inscription avec un email au format invalide |
+| **Préconditions** | - L'utilisateur est déconnecté |
+| | - Navigateur : Chrome dernière version, résolution 1920×1080 |
+| **Étapes** | 1. Accéder à https://makemycv.com |
+| | 2. Cliquer sur "S'inscrire" ou équivalent |
+| | 3. Saisir successivement les valeurs suivantes dans le champ email |
+| | et tenter de valider le formulaire à chaque fois : |
+| | - Sans arobase : "testexample.com" |
+| | - Sans domaine : "test@" |
+| | - Avec espaces : "test @example.com" |
+| | - Champ vide : "" |
+| | 4. Saisir un mot de passe valide pour chaque tentative |
+| | 5. Cliquer sur "Créer mon compte" ou équivalent |
+| **Résultat attendu** | - Le formulaire est bloqué à chaque tentative |
+| | - Un message d'erreur explicite est affiché sous le champ email |
+| | (ex : "Veuillez saisir une adresse email valide") |
+| | - Le message s'affiche sur le champ concerné, pas uniquement |
+| | en haut de page |
+| | - Aucun compte n'est créé en base pour ces valeurs |
+| | - Les autres champs du formulaire conservent leur valeur saisie |
+| | (pas de remise à zéro du formulaire complet) |
+| **Résultat obtenu** | *(à renseigner lors de l'exécution)* |
+| **Statut** | ⬜ Non exécuté |
+| **Sévérité** | Majeur |
+
+---
+
+## TC-008 — Inscription avec un mot de passe ne respectant pas les règles
+
+| Champ | Description |
+|---|---|
+| **ID** | TC-008 |
+| **Titre** | Tentative d'inscription avec un mot de passe invalide ou trop faible |
+| **Préconditions** | - L'utilisateur est déconnecté |
+| | - Les règles de complexité du mot de passe sont affichées |
+| | dans l'interface (à relever lors de l'exécution) |
+| | - Navigateur : Chrome dernière version, résolution 1920×1080 |
+| **Étapes** | 1. Accéder au formulaire d'inscription |
+| | 2. Saisir un email valide non encore utilisé |
+| | 3. Tester successivement les valeurs suivantes dans le champ |
+| | mot de passe et valider à chaque fois : |
+| | - Trop court : "Ab1!" (< 8 caractères) |
+| | - Sans majuscule : "motdepasse1!" |
+| | - Sans chiffre : "Motdepasse!" |
+| | - Champ vide : "" |
+| | 4. Cliquer sur "Créer mon compte" ou équivalent |
+| **Résultat attendu** | - Le formulaire est bloqué à chaque tentative invalide |
+| | - Un message d'erreur explicite est affiché sur le champ |
+| | mot de passe, indiquant la règle non respectée |
+| | (ex : "Le mot de passe doit contenir au moins 8 caractères") |
+| | - Les règles de complexité sont affichées avant la première |
+| | tentative, pas seulement après l'erreur |
+| | - Le champ email conserve la valeur saisie |
+| | - Aucun compte n'est créé pour ces valeurs |
+| **Résultat obtenu** | *(à renseigner lors de l'exécution)* |
+| **Statut** | ⬜ Non exécuté |
+| **Sévérité** | Majeur |
+
+---
+
+## TC-009 — Connexion avec un mot de passe incorrect
+
+| Champ | Description |
+|---|---|
+| **ID** | TC-009 |
+| **Titre** | Tentative de connexion avec un mot de passe erroné sur un compte existant |
+| **Préconditions** | - Un compte actif existe pour l'email test@example.com |
+| | - L'utilisateur est déconnecté |
+| | - Navigateur : Chrome dernière version, résolution 1920×1080 |
+| **Étapes** | 1. Accéder à la page de connexion |
+| | 2. Saisir l'email d'un compte existant : test@example.com |
+| | 3. Saisir un mot de passe incorrect : "MauvaisMotDePasse99!" |
+| | 4. Cliquer sur "Se connecter" |
+| | 5. Répéter les étapes 3 et 4 cinq fois consécutives |
+| **Résultat attendu** | - La connexion est refusée à chaque tentative |
+| | - Un message d'erreur générique est affiché : |
+| | "Email ou mot de passe incorrect" — sans préciser lequel |
+| | des deux champs est erroné (sécurité anti-énumération) |
+| | - Après plusieurs tentatives échouées (seuil à relever), |
+| | un mécanisme de protection est déclenché : |
+| | captcha, temporisation ou blocage temporaire du compte |
+| | - Aucun message ne confirme l'existence du compte |
+| **Résultat obtenu** | *(à renseigner lors de l'exécution)* |
+| **Statut** | ⬜ Non exécuté |
+| **Sévérité** | Majeur |
+
+> ⚠️ **Note de sécurité** : l'absence de mécanisme de protection
+> après plusieurs tentatives échouées (rate limiting, captcha)
+> expose l'application à une attaque par force brute (OWASP A07).
+> Si aucun mécanisme n'est détecté après 5 tentatives, le défaut
+> doit être remonté comme Majeur indépendamment du go/no-go.
+
+---
+
+## TC-010 — Soumission du formulaire d'inscription avec tous les champs vides
+
+| Champ | Description |
+|---|---|
+| **ID** | TC-010 |
+| **Titre** | Soumission du formulaire d'inscription sans aucune saisie utilisateur |
+| **Préconditions** | - L'utilisateur est déconnecté |
+| | - Navigateur : Chrome dernière version, résolution 1920×1080 |
+| **Étapes** | 1. Accéder à la page d'inscription |
+| | 2. Ne remplir aucun champ du formulaire |
+| | 3. Cliquer directement sur "Créer mon compte" ou équivalent |
+| | 4. Observer le comportement de l'interface |
+| | 5. Ouvrir les DevTools (F12) > onglet Network |
+| | 6. Vérifier qu'aucune requête HTTP n'est envoyée au serveur |
+| **Résultat attendu** | - La soumission est bloquée côté client avant tout appel réseau |
+| | - Chaque champ obligatoire est mis en évidence visuellement |
+| | (bordure rouge, icône d'erreur ou équivalent) |
+| | - Un message d'erreur est affiché pour chaque champ vide |
+| | obligatoire, de manière distincte et lisible |
+| | - Aucune requête HTTP n'est envoyée au serveur (validation |
+| | front-end effective, vérifiable dans l'onglet Network) |
+| | - La page ne se recharge pas |
+| **Résultat obtenu** | *(à renseigner lors de l'exécution)* |
+| **Statut** | ⬜ Non exécuté |
+| **Sévérité** | Mineur |
+
+> ⚠️ **Note technique** : la validation front-end seule ne suffit pas.
+> Elle peut être contournée en désactivant JavaScript ou en envoyant
+> des requêtes directement à l'API (ex : via curl ou Postman).
+> La validation côté serveur doit être vérifiée séparément —
+> hors scope du présent cas de test, à inscrire au backlog QA.
+
+
+
