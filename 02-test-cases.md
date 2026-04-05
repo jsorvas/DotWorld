@@ -1,6 +1,6 @@
-# 3 Cas de test — F1 Gestion compte & abonnement
+# 3 Cas de test (happy path) — F1 Gestion compte & abonnement
 
-> Parcours nominal (happy path) | Score de risque : 9 | Priorité : P1
+> Parcours nominal | Score de risque : 9 | Priorité : P1
 
 ## TC-001 — Inscription avec un email valide
 
@@ -82,4 +82,82 @@
 
 
 
-2 
+# 2 Cas de test (edge cases) — F1 Gestion compte & abonnement
+
+> Cas limites | Score de risque : 9 | Priorité : P1
+
+---
+
+## TC-005 — Inscription avec un email déjà utilisé
+
+| Champ | Description |
+|---|---|
+| **ID** | TC-005 |
+| **Titre** | Tentative d'inscription avec un email déjà associé à un compte existant |
+| **Préconditions** | - Un compte actif existe pour l'email test@example.com |
+| | - L'utilisateur est déconnecté |
+| | - Navigateur : Chrome dernière version, résolution 1920×1080 |
+| **Étapes** | 1. Accéder à https://makemycv.com |
+| | 2. Cliquer sur "S'inscrire" ou équivalent |
+| | 3. Saisir l'email d'un compte déjà existant (test@example.com) |
+| | 4. Saisir un mot de passe valide |
+| | 5. Confirmer le mot de passe |
+| | 6. Valider le formulaire |
+| **Résultat attendu** | - L'inscription est refusée |
+| | - Un message d'erreur explicite est affiché : |
+| | "Un compte existe déjà avec cet email" ou équivalent |
+| | - Le message d'erreur ne révèle pas d'informations sensibles |
+| | sur le compte existant (ex : prénom, statut abonnement) |
+| | - Aucun doublon de compte n'est créé en base |
+| | - Aucun email parasite n'est envoyé au propriétaire du compte existant |
+| **Résultat obtenu** | *(à renseigner lors de l'exécution)* |
+| **Statut** | ⬜ Non exécuté |
+| **Sévérité** | Majeur |
+
+> ⚠️ **Note de sécurité** : si l'application confirme l'existence
+> d'un compte via le message d'erreur, elle expose une surface
+> d'énumération d'emails (user enumeration). Ce comportement,
+> même s'il améliore l'UX, constitue une vulnérabilité OWASP A07
+> à signaler au PO pour arbitrage conscient.
+
+---
+
+## TC-006 — Résiliation de l'abonnement pendant la période d'essai
+
+| Champ | Description |
+|---|---|
+| **ID** | TC-006 |
+| **Titre** | Résiliation de l'abonnement avant la fin de la période d'essai de 14 jours |
+| **Préconditions** | - Utilisateur connecté avec un abonnement d'essai actif à 1,90€ |
+| | (TC-003 passé avec succès) |
+| | - La période d'essai de 14 jours n'est pas expirée |
+| | - Environnement de paiement sandbox disponible |
+| | - Navigateur : Chrome dernière version, résolution 1920×1080 |
+| **Étapes** | 1. Depuis le dashboard, accéder aux paramètres du compte |
+| | 2. Naviguer jusqu'à la section "Abonnement" ou équivalent |
+| | 3. Vérifier que l'option de résiliation est visible et accessible |
+| | sans obstacle (pas de dark pattern — ex : bouton caché, |
+| | tunnel de rétention abusif) |
+| | 4. Cliquer sur "Résilier mon abonnement" ou équivalent |
+| | 5. Confirmer la résiliation si une étape de confirmation est proposée |
+| | 6. Vérifier l'email de confirmation de résiliation reçu |
+| | 7. Vérifier le statut de l'abonnement dans les paramètres du compte |
+| | 8. Attendre la date de renouvellement théorique et vérifier |
+| | qu'aucun prélèvement supplémentaire n'est effectué |
+| **Résultat attendu** | - La résiliation est possible en moins de 3 clics depuis le dashboard |
+| | - Un email de confirmation de résiliation est reçu immédiatement |
+| | - Le statut abonnement indique "Résilié" ou "Actif jusqu'au JJ/MM/AAAA" |
+| | - Aucun prélèvement à 27,95€ n'est effectué après la résiliation |
+| | - L'accès aux fonctionnalités premium est maintenu |
+| | jusqu'à la fin de la période d'essai payée |
+| **Résultat obtenu** | *(à renseigner lors de l'exécution)* |
+| **Statut** | ⬜ Non exécuté |
+| **Sévérité** | Critique |
+
+> ⚠️ **Note légale** : en droit européen (directive Omnibus 2022
+> et Code de la consommation), la résiliation d'un abonnement en
+> ligne doit être aussi simple que la souscription. Un obstacle
+> à la résiliation est une infraction sanctionnable par la DGCCRF.
+> Tout friction anormale observée lors de ce test doit être remontée
+> immédiatement comme défaut bloquant, indépendamment du go/no-go
+> technique.
