@@ -278,3 +278,81 @@
 
 
 
+# 2 Cas de test — Compatibilité responsive & multi-navigateur
+
+> Périmètre : F1 Gestion compte & abonnement
+> Environnements prioritaires issus de ENVIRONMENT_STRATEGY.md
+
+---
+
+## TC-009 — Formulaire d'inscription sur mobile Android (Chrome / 360px)
+
+| Champ | Description |
+|---|---|
+| **ID** | TC-009 |
+| **Titre** | Affichage et soumission du formulaire d'inscription sur mobile Android |
+| **Préconditions** | - Device : smartphone Android (Samsung Galaxy S ou équivalent) |
+| | - Navigateur : Chrome dernière version |
+| | - Résolution : 360×800px |
+| | - Orientation : portrait |
+| | - Connexion réseau : Wi-Fi stable |
+| | - L'utilisateur est déconnecté |
+| **Étapes** | 1. Accéder à https://makemycv.com depuis Chrome Android |
+| | 2. Vérifier que la page d'accueil s'affiche sans scroll horizontal |
+| | 3. Localiser et taper sur le bouton "S'inscrire" ou équivalent |
+| | 4. Vérifier que le formulaire d'inscription est entièrement visible |
+| | et scrollable verticalement |
+| | 5. Taper sur le champ email — vérifier que le clavier virtuel |
+| | s'ouvre et ne masque pas le champ actif |
+| | 6. Saisir un email valide |
+| | 7. Taper sur le champ mot de passe et saisir un mot de passe valide |
+| | 8. Taper sur "Créer mon compte" ou équivalent |
+| | 9. Vérifier la page affichée après soumission |
+| **Résultat attendu** | - Aucun scroll horizontal sur l'ensemble du parcours |
+| | - Tous les champs sont accessibles et tapables sans zoom manuel |
+| | - Le clavier virtuel n'occulte pas le champ en cours de saisie |
+| | - Les boutons ont une zone de tap suffisante (≥ 44×44px, |
+| | recommandation WCAG 2.5.5) |
+| | - Le formulaire est soumis avec succès et le compte est créé |
+| | - Les messages d'erreur éventuels sont lisibles sans zoom |
+| **Résultat obtenu** | *(à renseigner lors de l'exécution)* |
+| **Statut** | ⬜ Non exécuté |
+| **Sévérité** | Majeur |
+
+---
+
+## TC-010 — Formulaire d'inscription sur desktop en résolution minimale (1366×768)
+
+| Champ | Description |
+|---|---|
+| **ID** | TC-010 |
+| **Titre** | Affichage du formulaire d'inscription sur laptop en résolution HD minimale |
+| **Préconditions** | - Device : laptop Windows ou macOS |
+| | - Navigateur : Chrome dernière version |
+| | - Résolution : 1366×768px (résolution minimale de la matrice) |
+| | - Fenêtre navigateur en plein écran |
+| | - L'utilisateur est déconnecté |
+| **Étapes** | 1. Configurer la résolution du navigateur à 1366×768 |
+| | via les DevTools (F12 > Toggle device toolbar) ou |
+| | les paramètres d'affichage système |
+| | 2. Accéder à https://makemycv.com |
+| | 3. Naviguer jusqu'au formulaire d'inscription |
+| | 4. Vérifier que le formulaire est entièrement visible |
+| | sans scroll horizontal |
+| | 5. Vérifier la lisibilité des labels, placeholders et boutons |
+| | 6. Remplir et soumettre le formulaire |
+| | 7. Comparer le rendu avec la résolution de référence 1920×1080 |
+| | — noter toute différence de mise en page |
+| **Résultat attendu** | - Le formulaire est entièrement utilisable à 1366×768 |
+| | sans scroll horizontal ni élément tronqué |
+| | - Aucun chevauchement d'éléments (labels, boutons, champs) |
+| | - Les textes restent lisibles (taille de police non réduite |
+| | en dessous de 12px) |
+| | - Le bouton de soumission est entièrement visible |
+| | sans avoir à scroller |
+| | - Le compte est créé avec succès |
+| **Résultat obtenu** | *(à renseigner lors de l'exécution)* |
+| **Statut** | ⬜ Non exécuté |
+| **Sévérité** | Mineur |
+
+
