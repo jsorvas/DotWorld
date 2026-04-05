@@ -309,4 +309,3 @@ constituent le filet de sécurité minimal non négociable :
 2. **Safari + macOS + 1280×800** — seul moyen de détecter les bugs WebKit
 3. **Chrome + Android + 375px** — valide la lisibilité mobile minimale
 
-4. 
