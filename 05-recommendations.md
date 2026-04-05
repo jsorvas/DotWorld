@@ -2,14 +2,15 @@
 
 > 3 conseils UX 
 
-1 — Transparence tarifaire sur la page d'accueil
-2 - Pas de FAQ 
-3 - Preuve sociale (vrai témoignage avec nom) 
+|---|---|
+| 1 | Transparence tarifaire sur la page d'accueil |
+| 2|  Pas de FAQ |
+| 3| Preuve sociale (vrai témoignage avec nom) | 
 
 > Types de tests à mettre en place
 
-| | -API
-| | -IHM
+API
+IHM
 E2E
 Accessibilité
 Performance 
