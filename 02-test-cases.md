@@ -25,6 +25,7 @@
 | **Statut** | ⬜ Non exécuté |
 | **Sévérité** | Critique |
 
+---
 
 ## TC-002 — Connexion avec des identifiants valides
 
@@ -48,6 +49,7 @@
 | **Statut** | ⬜ Non exécuté |
 | **Sévérité** | Critique |
 
+---
 
 ## TC-003 — Souscription à l'offre d'essai (1,90€ / 14 jours)
 
@@ -169,11 +171,11 @@
 
 ---
 
-## TC-007 — Inscription avec un email au format invalide
+## TC-006 — Inscription avec un email au format invalide
 
 | Champ | Description |
 |---|---|
-| **ID** | TC-007 |
+| **ID** | TC-006 |
 | **Titre** | Tentative d'inscription avec un email au format invalide |
 | **Préconditions** | - L'utilisateur est déconnecté |
 | | - Navigateur : Chrome dernière version, résolution 1920×1080 |
@@ -201,11 +203,11 @@
 
 ---
 
-## TC-008 — Inscription avec un mot de passe ne respectant pas les règles
+## TC-007 — Inscription avec un mot de passe ne respectant pas les règles
 
 | Champ | Description |
 |---|---|
-| **ID** | TC-008 |
+| **ID** | TC-007 |
 | **Titre** | Tentative d'inscription avec un mot de passe invalide ou trop faible |
 | **Préconditions** | - L'utilisateur est déconnecté |
 | | - Les règles de complexité du mot de passe sont affichées |
@@ -234,11 +236,11 @@
 
 ---
 
-## TC-009 — Connexion avec un mot de passe incorrect
+## TC-008 — Connexion avec un mot de passe incorrect
 
 | Champ | Description |
 |---|---|
-| **ID** | TC-009 |
+| **ID** | TC-008 |
 | **Titre** | Tentative de connexion avec un mot de passe erroné sur un compte existant |
 | **Préconditions** | - Un compte actif existe pour l'email test@example.com |
 | | - L'utilisateur est déconnecté |
@@ -267,32 +269,6 @@
 > doit être remonté comme Majeur indépendamment du go/no-go.
 
 ---
-
-## TC-010 — Soumission du formulaire d'inscription avec tous les champs vides
-
-| Champ | Description |
-|---|---|
-| **ID** | TC-010 |
-| **Titre** | Soumission du formulaire d'inscription sans aucune saisie utilisateur |
-| **Préconditions** | - L'utilisateur est déconnecté |
-| | - Navigateur : Chrome dernière version, résolution 1920×1080 |
-| **Étapes** | 1. Accéder à la page d'inscription |
-| | 2. Ne remplir aucun champ du formulaire |
-| | 3. Cliquer directement sur "Créer mon compte" ou équivalent |
-| | 4. Observer le comportement de l'interface |
-| | 5. Ouvrir les DevTools (F12) > onglet Network |
-| | 6. Vérifier qu'aucune requête HTTP n'est envoyée au serveur |
-| **Résultat attendu** | - La soumission est bloquée côté client avant tout appel réseau |
-| | - Chaque champ obligatoire est mis en évidence visuellement |
-| | (bordure rouge, icône d'erreur ou équivalent) |
-| | - Un message d'erreur est affiché pour chaque champ vide |
-| | obligatoire, de manière distincte et lisible |
-| | - Aucune requête HTTP n'est envoyée au serveur (validation |
-| | front-end effective, vérifiable dans l'onglet Network) |
-| | - La page ne se recharge pas |
-| **Résultat obtenu** | *(à renseigner lors de l'exécution)* |
-| **Statut** | ⬜ Non exécuté |
-| **Sévérité** | Mineur |
 
 > ⚠️ **Note technique** : la validation front-end seule ne suffit pas.
 > Elle peut être contournée en désactivant JavaScript ou en envoyant
