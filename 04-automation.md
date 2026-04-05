@@ -190,9 +190,8 @@ npm run test:open
 ## Couverture de test
 
 - **[TC-001]** : Inscription d'un nouvel utilisateur avec un email valide (Sévérité : Critique)
-```
 
-
+---
 
 >4. **Stratégie CI/CD** : Comment intégrerais-tu ces tests dans une pipeline CI/CD ?
 
