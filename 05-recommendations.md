@@ -8,8 +8,8 @@
 
 > Types de tests à mettre en place
 
-API
-IHM
+| | -API
+| | -IHM
 E2E
 Accessibilité
 Performance 
