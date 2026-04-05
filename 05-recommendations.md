@@ -11,10 +11,16 @@
 > Types de tests à mettre en place
 
 API
+
 IHM
+
 E2E
+
 Accessibilité
+
 Performance 
+
+
 
 > Métriques
 
