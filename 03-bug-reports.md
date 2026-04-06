@@ -10,10 +10,8 @@
 | | 3. Saisir un email valide non utilisé : nouveau@example.com |
 | | 4. Saisir un mot de passe sans chiffre : "Motdepasse!" |
 | | 5. Cliquer sur "Créer mon compte" |
-| **Résultat attendu** | La soumission est bloquée et un message d'erreur explicite |
-| | est affiché sous le champ mot de passe : |
-| | "Le mot de passe doit contenir au moins un chiffre" |
-| | ou équivalent |
+| **Résultat attendu** | La soumission est bloquée et un message d'erreur explicite est affiché sous le champ mot de passe : |
+| | "Le mot de passe doit contenir au moins un chiffre" ou équivalent |
 | **Résultat obtenu** | Le formulaire est soumis sans erreur malgré l'absence |
 | | de chiffre dans le mot de passe. Le compte est créé |
 | | avec un mot de passe ne respectant pas les règles |
