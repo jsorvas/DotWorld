@@ -12,8 +12,7 @@
 | | 5. Cliquer sur "Créer mon compte" |
 | **Résultat attendu** | La soumission est bloquée et un message d'erreur explicite est affiché sous le champ mot de passe : |
 | | "Le mot de passe doit contenir au moins un chiffre" ou équivalent |
-| **Résultat obtenu** | Le formulaire est soumis sans erreur malgré l'absence de chiffre dans le mot de passe. |
+| **Résultat obtenu** | Le formulaire est soumis sans erreur malgré l'absence de chiffre dans le mot de passe |
 | | Le compte est créé avec un mot de passe ne respectant pas les règles de complexité affichées dans l'interface |
 | **Environnement** | Navigateur : Chrome 124, Windows 11, 1920×1080 |
-| **Capture d'écran** | *(à joindre : screenshot du formulaire soumis avec succès* |
-| | *malgré le mot de passe invalide "Motdepasse!")* |
+| **Capture d'écran** | *(à joindre : screenshot du formulaire soumis avec succès malgré le mot de passe invalide "Motdepasse!")* |
