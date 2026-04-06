@@ -187,7 +187,7 @@ Un template non chargé bloque l'accès à l'éditeur.
 
 ---
 
-#4. Stratégie d'environnement
+# 4. Stratégie d'environnement
 
 ## Principe méthodologique
 
