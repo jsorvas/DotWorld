@@ -92,9 +92,8 @@ En l'absence de suite de tests existante, le plan suit trois règles :
 | B6 | Sélection de template | 4 | 2 | 15 min |
 | **Total** | | | **18** | **~3h** |
 
-> Les blocs B5 et B6 ne sont exécutés que si B1, B2 et B3 sont
-> validés sans défaut bloquant. En cas de défaut P1, les ressources
-> sont redirigées vers la correction et la re-vérification.
+> Les blocs B5 et B6 ne sont exécutés que si B1, B2 et B3 sont validés sans défaut bloquant 
+> En cas de défaut P1, les ressources sont redirigées vers la correction et la re-vérification 
 
 
 ## Détail des parcours par bloc
@@ -183,7 +182,9 @@ Un template non chargé bloque l'accès à l'éditeur.
 
 | ID | Parcours | Type | Critère de succès |
 |---|---|---|---|
-| B6-P1 | Affichage
+| B6-P1 | Affichage et sélection d'un template | Happy path | Tous les templates s'affichent, la sélection lance l'éditeur |
+| B6-P2 | Changement de template sur un CV existant | Happy path | Le contenu est conservé, le nouveau design est appliqué |
+
 
 ---
 
@@ -225,10 +226,8 @@ On couvre **3 moteurs de rendu distincts** en priorité :
   contextes d'usage très différents)
 - **Gecko** → Firefox
 
-> Tester uniquement Chrome et Edge revient à tester le même moteur
-> deux fois. La divergence de rendu entre Blink, WebKit et Gecko
-> sur la génération PDF et les formulaires complexes est documentée
-> et constitue un risque réel.
+> Tester uniquement Chrome et Edge revient à tester le même moteur deux fois 
+> La divergence de rendu entre Blink, WebKit et Gecko sur la génération PDF et les formulaires complexes est documentée et constitue un risque réel 
 
 ### Ce qu'on ne teste pas (et pourquoi)
 
@@ -276,8 +275,7 @@ On couvre **3 moteurs de rendu distincts** en priorité :
 
 ## 4. Matrice de priorisation consolidée
 
-Lecture : chaque cellule indique la priorité de test pour la
-combinaison navigateur × device.
+Lecture : chaque cellule indique la priorité de test pour la combinaison navigateur × device 
 
 |  | Windows 11 | macOS | Android | iOS |
 |---|:---:|:---:|:---:|:---:|
@@ -288,8 +286,7 @@ combinaison navigateur × device.
 
 ### Combinaisons minimales pour le déploiement du jour
 
-Si la contrainte de temps impose de réduire, ces 3 combinaisons
-constituent le filet de sécurité minimal non négociable :
+Si la contrainte de temps impose de réduire, ces 3 combinaisons constituent le filet de sécurité minimal non négociable :
 
 1. **Chrome + Windows 11 + 1920×1080** — couvre la majorité des utilisateurs
 2. **Safari + macOS + 1280×800** — seul moyen de détecter les bugs WebKit
