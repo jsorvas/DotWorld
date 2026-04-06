@@ -1,4 +1,3 @@
-
 # 1. Cartographie fonctionnelle 
 
 | # | Fonctionnalité | Priorité | Motif |
@@ -13,7 +12,7 @@
 | F6 | Multilingue | 🟡 P3 | Usage minoritaire, risque faible |
 | F9 | Optimisation ATS | 🟡 P3 | Pas d'interaction directe testable |
 
-
+---
 
 # 2. Matrice de risques
 
@@ -50,8 +49,7 @@ Plage : 1 (négligeable) → 9 (critique)
 | F6 | Multilingue | 1 | 2 | **2** | 🟢 Faible | P3 |
 | F9 | Optimisation ATS | 1 | 1 | **1** | 🟢 Négligeable | P3 |
 
-
-
+---
 
 # 3. Plan de test priorisé
 
@@ -68,7 +66,6 @@ Plage : 1 (négligeable) → 9 (critique)
 | Approche | Risk-Based Testing (ISTQB) |
 | Critère de priorisation | Score de risque I×P issu de la matrice |
 
----
 
 ## Principe de priorisation
 
@@ -82,7 +79,6 @@ En l'absence de suite de tests existante, le plan suit trois règles :
 3. **L'indépendance des parcours** — chaque bloc peut être exécuté
    et reporté séparément pour faciliter le go/no-go partiel.
 
----
 
 ## Vue d'ensemble du plan
 
@@ -100,11 +96,8 @@ En l'absence de suite de tests existante, le plan suit trois règles :
 > validés sans défaut bloquant. En cas de défaut P1, les ressources
 > sont redirigées vers la correction et la re-vérification.
 
----
 
 ## Détail des parcours par bloc
-
----
 
 ### B1 — Gestion compte & abonnement
 **Score de risque : 9 | Priorité : P1**
@@ -126,7 +119,6 @@ relevée sur Trustpilot).
 > paiement sandbox. Si aucun environnement de ce type n'existe,
 > le risque doit être explicitement accepté par le PO avant déploiement.
 
----
 
 ### B2 — Téléchargement PDF
 **Score de risque : 9 | Priorité : P1**
@@ -141,7 +133,6 @@ variations de contenu et aux mises à jour de dépendances.
 | B2-P2 | Téléchargement d'un CV partiel (rubriques minimales) | Cas limite | PDF généré sans erreur, sans zones vides anormales |
 | B2-P3 | Téléchargement avec contenu long (textes dépassant la capacité d'une page) | Cas limite | Pagination correcte, aucun contenu tronqué |
 
----
 
 ### B3 — Création et édition du CV
 **Score de risque : 6 | Priorité : P1**
@@ -156,7 +147,6 @@ ou un formulaire cassé détruit immédiatement la confiance utilisateur.
 | B3-P3 | Saisie de caractères spéciaux et accents (é, ü, ñ, @, &…) | Cas limite | Aucune corruption de données, affichage correct dans la prévisualisation |
 | B3-P4 | Sauvegarde automatique (perte de connexion simulée) | Robustesse | Les données saisies avant la perte de connexion sont récupérées à la reconnexion |
 
----
 
 ### B4 — Assistance IA
 **Score de risque : 6 | Priorité : P2**
@@ -171,7 +161,6 @@ mais différenciante — une régression serait visible immédiatement.
 | B4-P2 | Génération d'une suggestion IA sur un champ vide | Cas limite | Message d'erreur explicite OU suggestion générique — pas de crash |
 | B4-P3 | Comportement en cas de timeout API | Robustesse | Message d'erreur affiché, l'utilisateur peut continuer sans l'IA |
 
----
 
 ### B5 — Lettre de motivation
 **Score de risque : 4 | Priorité : P2**
@@ -185,7 +174,6 @@ impacte mécaniquement B5.
 | B5-P1 | Création d'une lettre de motivation depuis un modèle | Happy path | Lettre générée, champs éditables, cohérente avec le CV associé |
 | B5-P2 | Téléchargement de la lettre en PDF | Happy path | PDF généré, lisible, mise en page assortie au CV |
 
----
 
 ### B6 — Sélection de template
 **Score de risque : 4 | Priorité : P2**
@@ -197,8 +185,7 @@ Un template non chargé bloque l'accès à l'éditeur.
 |---|---|---|---|
 | B6-P1 | Affichage
 
-
-
+---
 
 #4. Stratégie d'environnement
 
@@ -251,7 +238,6 @@ On couvre **3 moteurs de rendu distincts** en priorité :
 | Opera | Part de marché < 2%, moteur Blink identique à Chrome |
 | Navigateurs anciens (N-2) | Effort disproportionné, utilisateurs marginaux |
 
----
 
 ## 2. Devices et systèmes d'exploitation
 
