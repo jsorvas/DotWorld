@@ -32,7 +32,7 @@
 | | 4. Chercher un bouton ou lien "Résilier mon abonnement" ou équivalent |
 | | 5. Aucun élément de résiliation n'est trouvé dans l'interface |
 | **Résultat attendu** | Un bouton ou lien "Résilier mon abonnement" est visible et accessible en moins de 3 clics depuis le dashboard |
-| **Résultat obtenu** | La section "Abonnement" affiche le statut et la date de renouvellement mais ne propose aucune option de résiliation |
+| **Résultats obtenus** | La section "Abonnement" affiche le statut et la date de renouvellement mais ne propose aucune option de résiliation |
 | | Aucun lien, bouton ou mention d'une procédure de résiliation n'est présent dans l'interface |
 | **Environnement** | Navigateur : Chrome 124, Windows 11, 1920×1080 |
 | **Capture d'écran** | *(à joindre : screenshot de la section "Abonnement" sans option de résiliation visible)* |
