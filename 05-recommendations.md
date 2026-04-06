@@ -10,15 +10,15 @@
 
 > Types de tests à mettre en place
 
-API
+API : tests back-end, tests d'intégration 
 
-IHM
+IHM : tests front, tests systèmes
 
-E2E
+E2E : tests UAT  
 
-Accessibilité
+Accessibilité : RG2A et autres
 
-Performance 
+Performance : nombre utilisateurs, connexion internet dégradée 
 
 
 
